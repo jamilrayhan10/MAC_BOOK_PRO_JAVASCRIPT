@@ -112,17 +112,21 @@ function totalCalculation() {
     newExtraStoragePrice +
     newDeliveryChargePrice;
 }
-
+// stevekaku
 // total price with discount
 document.getElementById("apply-btn").addEventListener("click", function () {
   const promoCode = document.getElementById("promo-code");
   const newPromo = promoCode.value;
+
   if (newPromo == "stevekaku") {
     const finalTotalPrice = document.getElementById("final-total-price");
     let newFinalTotalPrice = parseFloat(finalTotalPrice.innerText);
     const afterDiscount = newFinalTotalPrice * (1 - 0.2);
     finalTotalPrice.innerText = afterDiscount;
+    const applyBtnDisabled = document.getElementById("apply-btn");
+    applyBtnDisabled.disabled = true;
   }
+
   // clrear input velue
   promoCode.value = "";
 });
